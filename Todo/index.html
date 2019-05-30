@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width = device-width, initial-scale = 1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie = edge">
+    <title>TODO App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <div id="app">
+        <div class="row center">
+            <h1 class="title">{{appName}}</h1>
+            <h3 class="elems">Cose da fare: {{elemsTodo}}</h3>
+        </div>
+        <div class="row">
+            <!-- FORM inserimento dati -->
+            <div id = "form" class="row col s8 m8 l8 offset-s2 offset-m2 offset-l2">
+                <form v-on:submit.prevent="inserisciElemento">
+                    <div class="row">
+                        <div class="center col m4 offset-m4 l4 offset-l4 s4 offset-s4">
+                            <div class="input-field">
+                                <input v-model="newElem.name" type="text" class="validate" id="name"
+                                    placeholder="Inserisci un nome ..." />
+                                <label for="name">Nome: </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field">
+                            <input v-model="newElem.description" type="text" class="validate" id="description"
+                                placeholder="Inserisci una descrizione ..." />
+                            <label for="description">Descrizione: </label>
+                        </div>
+                    </div>
+                    <div class="row center">
+                        <button type="submit" class="btn waves-effect waves-light">Aggiungi<i
+                                class="material-icons right">send</i></button>
+                    </div>
+                </form>
+            </div>
+            <!-- Tabella per la stampa -->
+            <div class="row col s8 m8 l8 offset-s2 offset-m2 offset-l2">
+                <table class="striped centered highlight">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Descrizione</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="item in elems">
+                            <td>{{item.name}}</td>
+                            <td>{{item.description}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+</body>
+
+</html>
