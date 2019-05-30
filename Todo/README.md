@@ -7,8 +7,8 @@ L'applicazione viene divisa in due componenti:
 2. Una componente per la visualizzazione della lista delle cose da fare.
 
 Ogni elemento è composto da:
-2. Un **Titolo**.
-3. Una **Breve descrizione**.
+1. Un **Titolo**.
+2. Una **Breve descrizione**.
 
 ## NOTE
 
