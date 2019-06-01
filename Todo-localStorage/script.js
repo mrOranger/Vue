@@ -6,7 +6,8 @@ const app = new Vue({
     <div>
         <div class="row center">
             <h1 class="title">{{appName}}</h1>
-            <h3 class="elems">Cose da fare: {{elemsTodo}}</h3>
+            <h3 class="elems">Cose da fare: {{doneTodo}}</h3>
+            <h3 class="elems">Cose già fatte: {{undoneTodo}}</h3>
         </div>
         <div class="row">
             <!-- FORM inserimento dati -->
@@ -118,6 +119,24 @@ const app = new Vue({
         },
         elemsTodo: function(){
             return this.elems.length;
+        },
+        doneTodo: function(){
+            let done = 0;
+            for(let i = 0; i < this.elems.length; i++){
+                if(this.elems[i].todo == true){
+                    done++;
+                }
+            }
+            return done;
+        },
+        undoneTodo: function(){
+            let done = 0;
+            for(let i = 0; i < this.elems.length; i++){
+                if(this.elems[i].todo == false){
+                    done++;
+                }
+            }
+            return done;
         }
     }
 });
